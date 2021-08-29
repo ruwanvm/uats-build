@@ -1,0 +1,13 @@
+name: UATS microservice deployment workflow
+on: [push]
+jobs:
+  build:
+    name: Build UATS microservice
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+    steps:
+      - name: Get Branch Details
+        uses: rlespinasse/github-slug-action@v3.x
+      - name: Set Enviironment Variables
+        run: |
+          env
