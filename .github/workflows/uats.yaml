@@ -22,6 +22,8 @@ jobs:
           aws-region: ${{ secrets.ECR_AWS_REGION }}
       - name: Download Artifacts to Repocitory
         run: |
+          env
+          echo "${env.BUILD_ARTIFACT_LOACTION}/${env.BUILD_ARTIFACT_TYPE}/${env.BUILD_VERSION}/${env.BUILD_ARTIFACT_TYPE}-${env.BUILD_VERSION}.tar.gz"
           aws s3 cp \
             "${env.BUILD_ARTIFACT_LOACTION}/${env.BUILD_ARTIFACT_TYPE}/${env.BUILD_VERSION}/${env.BUILD_ARTIFACT_TYPE}-${env.BUILD_VERSION}.tar.gz" \
             artifacts.tar.gz
