@@ -23,7 +23,7 @@ jobs:
       - name: Download Artifacts to Repocitory
         run: |
           env
-          echo "${env.BUILD_ARTIFACT_LOACTION}/${env.BUILD_ARTIFACT_TYPE}/${env.BUILD_VERSION}/${env.BUILD_ARTIFACT_TYPE}-${env.BUILD_VERSION}.tar.gz"
+          echo "$BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/$BUILD_ARTIFACT_TYPE-$env.BUILD_VERSION.tar.gz"
           aws s3 cp \
             "${env.BUILD_ARTIFACT_LOACTION}/${env.BUILD_ARTIFACT_TYPE}/${env.BUILD_VERSION}/${env.BUILD_ARTIFACT_TYPE}-${env.BUILD_VERSION}.tar.gz" \
             artifacts.tar.gz
