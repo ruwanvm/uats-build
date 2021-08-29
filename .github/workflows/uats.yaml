@@ -24,9 +24,10 @@ jobs:
         run: |
           aws s3 cp \
             "$BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/$BUILD_ARTIFACT_TYPE-$BUILD_VERSION.tar.gz" \
-            artifacts.tar.gz
+            artifacts.tar.gz >> /dev/null
           tar -xvzf artifacts.tar.gz
           rm -f artifacts.tar.gz
+          tree
       - name: Login to ECR
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v1
@@ -34,5 +35,5 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
         run: |
-          docker build -t ${ECR_REGISTRY}/${env.BUILD_ARTIFACT_TYPE}:${env.BUILD_VERSION} .
-          docker push ${ECR_REGISTRY}/${env.BUILD_ARTIFACT_TYPE}:${env.BUILD_VERSION}
+          docker build -t $ECR_REGISTRY/$BUILD_ARTIFACT_TYPE:$BUILD_VERSION .
+          docker push $ECR_REGISTRY/$BUILD_ARTIFACT_TYPE:$BUILD_VERSION
