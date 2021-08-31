@@ -24,10 +24,9 @@ jobs:
         run: |
           aws s3 cp \
             "$BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/$BUILD_ARTIFACT_TYPE-$BUILD_VERSION.tar.gz" \
-            artifacts.tar.gz >> /dev/null
+            artifacts.tar.gz
           tar -xvzf artifacts.tar.gz
           rm -f artifacts.tar.gz
-          tree
       - name: Login to ECR
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v1
