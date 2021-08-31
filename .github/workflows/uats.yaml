@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 5
     env:
-      BUILD_VERSION: ${{ github.event.head_commit.message }} # Change this for main branch
+      BUILD_VERSION: ${{ github.event.head_commit.message }} # Change this when major workflow
       BUILD_ARTIFACT_TYPE: ${{ secrets.BUILD_ARTIFACT_TYPE }}
       BUILD_ARTIFACT_LOACTION: ${{ secrets.BUILD_ARTIFACT_LOACTION }}
     steps:
