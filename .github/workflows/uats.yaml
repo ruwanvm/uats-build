@@ -1,8 +1,8 @@
-name: UATS microservice deployment workflow
+name: UATS docker build workflow
 on: [push]
 jobs:
   build:
-    name: Build UATS microservice
+    name: Build UATS microservice image
     runs-on: ubuntu-20.04
     timeout-minutes: 5
     env:
