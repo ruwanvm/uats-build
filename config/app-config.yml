@@ -77,7 +77,7 @@ zones:
         func: com.ustack.app.ReactorAppStatCollector
         router: ROUND_ROBIN
 env:
-  DYNAMODB_HOST: https://dynamodb-service
+  DYNAMODB_HOST: https://dynamodb
   PGSQL_HOST: ${{ control.PGSQL_HOST }}
   PGSQL_USERNAME: ${{ control.PGSQL_USERNAME }}
   PGSQL_PASSWORD: ${{ control.PGSQL_PASSWORD }}
