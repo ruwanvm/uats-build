@@ -6,5 +6,4 @@ COPY app-*.jar app.jar
 COPY ./config/app-config.yml ./conf/app-config.yml
 RUN chmod 755 app.jar
 EXPOSE 4801 7778 8000 8080
-CMD sleep 7200
-#ENTRYPOINT java -cp app.jar:lib/* com.uats.app.UatsApp conf/app-config.yml $APP_ZONE
+ENTRYPOINT java -cp app.jar:lib/* com.uats.app.UatsApp conf/app-config.yml $APP_ZONE

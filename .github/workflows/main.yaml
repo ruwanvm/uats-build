@@ -8,7 +8,7 @@ jobs:
     env:
       BUILD_VERSION: ${{ github.event.head_commit.message }} # Change this when major workflow
       BUILD_ARTIFACT_TYPE: ${{ secrets.BUILD_ARTIFACT_TYPE }}
-      BUILD_ARTIFACT_LOACTION: ${{ secrets.BUILD_ARTIFACT_LOACTION }}
+      BUILD_ARTIFACT_LOCATION: ${{ secrets.BUILD_ARTIFACT_LOCATION }}
     steps:
       - name: Get Branch Details
         uses: rlespinasse/github-slug-action@v3.x
@@ -23,7 +23,7 @@ jobs:
       - name: Download Artifacts to Repocitory
         run: |
           aws s3 cp \
-            "$BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/$BUILD_ARTIFACT_TYPE-$BUILD_VERSION.tar.gz" \
+            "$BUILD_ARTIFACT_LOCATION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/$BUILD_ARTIFACT_TYPE-$BUILD_VERSION.tar.gz" \
             artifacts.tar.gz
           tar -xvzf artifacts.tar.gz
           rm -f artifacts.tar.gz
