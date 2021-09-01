@@ -1,5 +1,7 @@
 name: UATS docker build workflow
+
 on: [push]
+
 jobs:
   build:
     name: Build UATS microservice image
